@@ -134,7 +134,9 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <nav className="desktop-nav" aria-label="Glavni meni">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
+              const isActive =
+                location.pathname === link.path ||
+                (link.path === '/storitve' && location.pathname === '/services');
               return (
                 <NavLink
                   key={link.path}
@@ -182,7 +184,9 @@ export default function Navbar() {
         <div className="mobile-drawer">
           <nav className="mobile-nav-list" aria-label="Mobilni meni">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
+              const isActive =
+                location.pathname === link.path ||
+                (link.path === '/storitve' && location.pathname === '/services');
               return (
                 <NavLink
                   key={link.path}

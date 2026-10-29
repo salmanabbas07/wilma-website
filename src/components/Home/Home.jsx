@@ -163,6 +163,7 @@ export default function Home() {
               <ServiceCard
                 key={service.id}
                 id={service.id}
+                slug={service.slug}
                 title={service.title}
                 image={service.image}
                 description={service.description}

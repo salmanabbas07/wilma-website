@@ -10,6 +10,7 @@ import './ServiceCard.css';
  */
 export default function ServiceCard({
   id,
+  slug,
   title = 'Hotelsko gospodinjstvo',
   description = 'Profesionalne storitve čiščenja in vzdrževanja za vaše objekte.',
   features = [],
@@ -18,6 +19,16 @@ export default function ServiceCard({
   onSelect,
   className = ''
 }) {
+  const serviceSlug = slug || id;
+  const targetUrl = `/services#${serviceSlug}`;
+
+  const handleButtonClick = (e) => {
+    if (onSelect) {
+      e.preventDefault();
+      onSelect(serviceSlug);
+    }
+  };
+
   return (
     <article className={`service-card group ${className}`}>
       {/* Image Area */}
@@ -55,7 +66,8 @@ export default function ServiceCard({
 
         <div className="service-card-footer">
           <Button
-            to="/storitve"
+            to={targetUrl}
+            onClick={handleButtonClick}
             variant="primary"
             size="sm"
             icon={ArrowRight}

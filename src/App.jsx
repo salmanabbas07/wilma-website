@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Link, useParams, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Button from './components/Button/Button';
@@ -13,20 +13,52 @@ import './App.css';
 
 /**
  * ScrollToTop helper component
- * Ensures window scrolls to top on route navigation
+ * Ensures that whenever a user navigates to any route across the entire website
+ * (via buttons, links, navigation items, service cards, or browser history),
+ * the new page always starts cleanly from the top (0, 0).
  */
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-  }, [pathname]);
+    // 1. Disable browser default automatic scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // 2. Helper to immediately snap scroll position to the top (0, 0)
+    const resetScrollToTop = () => {
+      // Temporarily bypass smooth scrolling during route transitions
+      const originalScrollBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+
+      // Restore default scroll behavior for normal in-page scrolling
+      requestAnimationFrame(() => {
+        document.documentElement.style.scrollBehavior = originalScrollBehavior;
+      });
+    };
+
+    // Execute immediately on route change
+    resetScrollToTop();
+
+    // Secondary execution right after DOM commit to catch any asynchronously rendered elements
+    const timerId = setTimeout(resetScrollToTop, 15);
+    return () => clearTimeout(timerId);
+  }, [pathname, search, hash]);
 
   return null;
+}
+
+/**
+ * Redirect /service/:slug to /services#slug on the main services route
+ */
+function ServiceRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={`/services#${slug}`} replace />;
 }
 
 /**
@@ -62,6 +94,9 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/o-nas" element={<About />} />
             <Route path="/storitve" element={<Services />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/service/:slug" element={<ServiceRedirect />} />
+            <Route path="/storitve/:slug" element={<ServiceRedirect />} />
             <Route path="/pogosta-vprasanja" element={<FAQ />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/kontakt" element={<Contact />} />

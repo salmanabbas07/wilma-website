@@ -124,31 +124,31 @@ export default function Footer() {
             </h4>
             <ul className="footer-links-list">
               <li className="footer-link-item">
-                <Link to="/storitve">
+                <Link to="/service/hotel-housekeeping">
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#7BB6D0]" />
                   <span>Hotelsko gospodinjstvo</span>
                 </Link>
               </li>
               <li className="footer-link-item">
-                <Link to="/storitve">
+                <Link to="/service/seasonal-housekeeping-teams">
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#7BB6D0]" />
                   <span>Sezonske ekipe za čiščenje</span>
                 </Link>
               </li>
               <li className="footer-link-item">
-                <Link to="/storitve">
+                <Link to="/service/temporary-housekeeping-support">
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#7BB6D0]" />
                   <span>Začasna podpora gospodinjstvu</span>
                 </Link>
               </li>
               <li className="footer-link-item">
-                <Link to="/storitve">
+                <Link to="/service/flexible-subcontracting">
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#7BB6D0]" />
                   <span>Prilagodljivo podizvajanje</span>
                 </Link>
               </li>
               <li className="footer-link-item">
-                <Link to="/storitve">
+                <Link to="/service/business-and-office-cleaning">
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#7BB6D0]" />
                   <span>Poslovno in pisarniško čiščenje</span>
                 </Link>

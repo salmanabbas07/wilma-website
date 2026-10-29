@@ -1,4 +1,41 @@
-/* Services page styles */
+/* Services Page Styles */
 .services-page {
   position: relative;
+  width: 100%;
+}
+
+.service-detail-image-box {
+  width: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.service-note-box {
+  padding: 1rem 1.25rem;
+  border-radius: 0.875rem;
+  margin-top: 1rem;
+}
+
+.service-note-box.amber-note {
+  background-color: rgba(254, 243, 199, 0.5);
+  border-left: 4px solid #EEA800;
+}
+
+.service-note-box.emerald-note {
+  background-color: rgba(236, 253, 245, 0.7);
+  border-left: 4px solid #0B4D26;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.service-callout-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #062b15 0%, #0B4D26 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
