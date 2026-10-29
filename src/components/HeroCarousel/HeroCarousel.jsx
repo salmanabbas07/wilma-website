@@ -371,6 +371,7 @@ export default function HeroCarousel() {
                           </div>
                           <div className="hero-contact-inline">
                             <Phone className="w-3.5 h-3.5 text-[#EEA800] shrink-0" aria-hidden="true" />
+                            <span>Telefon:</span>
                             <a href="tel:040791618" className="hero-phone-link">
                               040 791 618
                             </a>

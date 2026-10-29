@@ -10,6 +10,7 @@ import './BlogCard.css';
 export default function BlogCard({
   id,
   title = 'Aktualne novice in strokovni nasveti',
+  image = null,
   date = '24. Okt 2025',
   category = 'Novice',
   excerpt = 'Kratka vsebina in strokovni poudarki iz sveta hotelirstva in čiščenja.',
@@ -20,9 +21,11 @@ export default function BlogCard({
     <article className={`blog-card group ${className}`}>
       <div className="blog-card-img-wrapper">
         <ImagePlaceholder
+          src={image}
+          alt={title}
           aspectRatio="aspect-[16/10]"
           rounded="rounded-xl"
-          label="Slika članka"
+          label={`Slika: ${title}`}
           className="transition-transform duration-300 group-hover:scale-[1.01]"
         />
       </div>

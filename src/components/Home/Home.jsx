@@ -329,6 +329,7 @@ export default function Home() {
                 key={post.id}
                 id={post.id}
                 title={post.title}
+                image={post.image}
                 date={post.date}
                 category={post.category}
                 excerpt={post.excerpt}

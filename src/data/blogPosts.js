@@ -2,6 +2,7 @@ export const blogPostsData = [
   {
     id: 1,
     title: 'Prihodnost kadrov v hotelirstvu: Prilagodljive rešitve za sodobne hotele',
+    image: '/images/The Future of Hospitality Staffing.png',
     date: '24. Oktobra 2025',
     category: 'Gospodinjstvo',
     author: 'Ekipa Williams',
@@ -11,6 +12,7 @@ export const blogPostsData = [
   {
     id: 2,
     title: 'Kako prilagodljivo podizvajanje zmanjšuje operativne stroške',
+    image: '/images/flexible outsourcing reduces operational costs Subcontracting housekeeping services.png',
     date: '18. Oktobra 2025',
     category: 'Optimizacija',
     author: 'Ekipa Williams',
@@ -20,6 +22,7 @@ export const blogPostsData = [
   {
     id: 3,
     title: 'Pomen sezonskih ekip za brezhibno storitev v turistični konici',
+    image: '/images/The importance of seasonal teams for impeccable service during peak tourist season.png',
     date: '12. Oktobra 2025',
     category: 'Upravljanje kakovosti',
     author: 'Ekipa Williams',
