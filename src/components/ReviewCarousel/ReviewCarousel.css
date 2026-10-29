@@ -1,0 +1,274 @@
+/* Review / Testimonials Carousel Styles */
+.review-carousel-section {
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  background-color: rgba(249, 250, 251, 0.85);
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .review-carousel-section {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.review-carousel-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .review-carousel-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .review-carousel-container {
+    padding: 0 2rem;
+  }
+}
+
+/* Carousel Track Wrapper */
+.review-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+.review-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Review Card in Carousel */
+.review-slide-item {
+  flex: 0 0 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .review-slide-item {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}
+
+.review-card {
+  background-color: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 270px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+@media (max-width: 430px) {
+  .review-card {
+    padding: 1.25rem 1rem;
+    min-height: 250px;
+  }
+}
+
+@media (min-width: 640px) {
+  .review-card {
+    padding: 2rem 1.75rem;
+    border-radius: 1.5rem;
+  }
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  border-color: rgba(11, 112, 166, 0.2);
+}
+
+.review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.review-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.review-star-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: #F3B209;
+  fill: #F3B209;
+}
+
+.review-quote-badge {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: rgba(11, 112, 166, 0.08);
+  color: #0B70A6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-text {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #374151;
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .review-text {
+    font-size: 1rem;
+  }
+}
+
+/* Review Author Info */
+.review-author-row {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.review-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #0B70A6 0%, #081738 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ffffff;
+}
+
+.review-author-meta {
+  min-width: 0;
+}
+
+.review-author-name {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.9375rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-author-role {
+  font-size: 0.8125rem;
+  color: #0B70A6;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-author-company {
+  font-size: 0.75rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Controls: Arrows and Dots */
+.review-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.review-arrow-btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background-color: #081738;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(8, 23, 56, 0.2);
+}
+
+.review-arrow-btn:hover:not(:disabled) {
+  background-color: #EEA800;
+  color: #0B4D26;
+  transform: scale(1.06);
+  box-shadow: 0 6px 12px -2px rgba(238, 168, 0, 0.4);
+}
+
+.review-arrow-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.review-arrow-btn:focus-visible {
+  outline: 2px solid #EEA800;
+  outline-offset: 2px;
+}
+
+/* Indicators */
+.review-dots-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.review-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-dot:hover {
+  background-color: #94a3b8;
+}
+
+.review-dot.active {
+  width: 1.5rem;
+  background-color: #0B70A6;
+}

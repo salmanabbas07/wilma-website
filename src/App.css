@@ -1,0 +1,4 @@
+/* App-level global layout helpers */
+.page-container {
+  min-height: calc(100vh - 400px);
+}

@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary-blue: #0B70A6;
+    --color-primary-yellow: #F3B209;
+    --color-light-blue: #7BB6D0;
+    --color-golden: #F3C75B;
+    --color-pale-yellow: #FCE4A9;
+    --color-heading-green: #166534;
+    --color-bg-white: #FFFFFF;
+    --color-dark-navy: #081738;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    @apply bg-white text-gray-800 antialiased overflow-x-hidden;
+  }
+
+  /* Consistent green tone for headings as required by PRD Section 5 */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-brand-green;
+  }
+
+  /* When headings are inside dark containers, they can be overridden with text-white */
+  .text-on-dark h1,
+  .text-on-dark h2,
+  .text-on-dark h3,
+  .text-on-dark h4 {
+    @apply text-white;
+  }
+}
+
+@layer utilities {
+  .aspect-video-card {
+    aspect-ratio: 16 / 10;
+  }
+}
