@@ -78,18 +78,11 @@ export default function Home() {
             <div className="about-media-stack">
               <div className="about-main-img-card">
                 <ImagePlaceholder
+                  src="/images/about_image.jpeg"
+                  alt="Williams Housekeeping"
                   aspectRatio="aspect-[4/5]"
                   rounded="rounded-2xl"
                   label="Glavna predstavitvena slika podjetja"
-                />
-              </div>
-
-              {/* Overlapping Quality Highlight Card */}
-              <div className="about-badge-card">
-                <ImagePlaceholder
-                  aspectRatio="aspect-square"
-                  rounded="rounded-xl"
-                  label="Poudarek kakovosti"
                 />
               </div>
             </div>
@@ -98,49 +91,49 @@ export default function Home() {
             <div className="about-content-col">
               <div className="about-pill-badge">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                <span>O podjetju</span>
+                <span>O nas &bull; Williams Housekeeping</span>
               </div>
 
               <h2 className="about-title">
-                Vrhunske ekipe za hotelsko gospodinjstvo in poslovne prostore
+                Dobrodošli pri Williams Housekeeping — Vaš zanesljiv partner za brezhibne in zdrave prostore
               </h2>
 
               <p className="about-desc-primary">
-                Zavezani smo k zagotavljanju brezhibne čistoče, urejenosti in visoke ravni higiene za hotele, letovišča ter poslovne objekte po vsej Sloveniji. Naš cilj je ustvariti prijetno in varno bivalno okolje za vaše goste.
+                Pri Williams Housekeeping verjamemo, da je čisto okolje temelj zdravja, produktivnosti in miru. Smo ponudnik profesionalnih rešitev za čiščenje, predan zagotavljanju vrhunskih storitev, prilagojenih edinstvenim potrebam stanovanjskih, poslovnih in komercialnih naročnikov.
               </p>
 
               <p className="about-desc-secondary">
-                Zanesljivost, diskretnost in profesionalni odnos so temelj vsakega našega sodelovanja. Z usposobljenimi ekipami in stalnim nadzorom kakovosti prevzemamo celotno skrb za urejenost vaših prostorov.
+                Ne glede na to, ali gre za osvežitev vašega doma, vzdrževanje higienskega in navdihujočega pisarniškega delovnega prostora, vrhunsko oskrbo vrtov in urejanje okolice ali ponudbo globinskega čiščenja in vzdrževanja za hotele ter nastanitvene obrate — poskrbimo za vse. Naše strokovno znanje zajema vse vrste specializiranih storitev čiščenja, s čimer zagotavljamo, da vsak kotiček prejme skrb in pozornost, ki si jo zasluži.
               </p>
 
               {/* 4 Feature Bullet points with checkmarks */}
               <div className="about-features-grid">
                 <div className="about-feature-item">
                   <CheckCircle2 className="about-feature-icon" />
-                  <span>Stalna razpoložljivost osebja</span>
+                  <span>Osvežitev domov in stanovanj</span>
                 </div>
                 <div className="about-feature-item">
                   <CheckCircle2 className="about-feature-icon" />
-                  <span>Nadzor kakovosti na terenu</span>
+                  <span>Higienski pisarniški in poslovni prostori</span>
                 </div>
                 <div className="about-feature-item">
                   <CheckCircle2 className="about-feature-icon" />
-                  <span>Preverjeni in usposobljeni kadri</span>
+                  <span>Vrhunska oskrba vrtov in urejanje okolice</span>
                 </div>
                 <div className="about-feature-item">
                   <CheckCircle2 className="about-feature-icon" />
-                  <span>Brezplačna in hitra menjava</span>
+                  <span>Globinsko čiščenje hotelov in nastanitev</span>
                 </div>
               </div>
 
               <div>
                 <Button
-                  to="/o-nas"
+                  to="/kontakt"
                   variant="primary"
                   size="md"
                   icon={ArrowRight}
                 >
-                  Več o našem delu
+                  Pošljite povpraševanje
                 </Button>
               </div>
             </div>

@@ -2,13 +2,12 @@ import React from 'react';
 import {
   Sparkles,
   CheckCircle2,
-  Target,
-  Handshake,
   Users,
   ShieldCheck,
-  Award,
   Clock,
-  ArrowRight
+  ArrowRight,
+  Layers,
+  HeartHandshake
 } from 'lucide-react';
 import PageBanner from '../../components/PageBanner/PageBanner';
 import SectionHeading from '../../components/SectionHeading/SectionHeading';
@@ -17,30 +16,53 @@ import TestimonialCard from '../../components/TestimonialCard/TestimonialCard';
 import CTASection from '../../components/CTASection/CTASection';
 import Button from '../../components/Button/Button';
 import { testimonialsData } from '../../data/testimonials';
-import { processStepsData } from '../../data/processSteps';
 import './About.css';
 
 export default function About() {
-  const companyFeatures = [
+  const whyChooseFeatures = [
+    {
+      icon: Layers,
+      title: 'Celovite rešitve',
+      description:
+        'Od vsakodnevnega gospodinjstva do globinske obnove, nege preprog, čiščenja stekel in okolju prijaznega vzdrževanja vrtov — zagotavljamo popolne, celovite rešitve na enem mestu.',
+      bullets: [
+        'Vsakodnevno gospodinjstvo in tekoče vzdrževanje',
+        'Globinska obnova, nega preprog in profesionalno čiščenje stekel',
+        'Okolju prijazno vzdrževanje vrtov in urejanje okolice'
+      ]
+    },
     {
       icon: Users,
-      title: 'Predana ekipa strokovnjakov',
-      description: 'Visoko motivirani kadri z ustreznimi kompetencami in strokovnim pristopom.'
+      title: 'Usposobljena in profesionalna ekipa',
+      description:
+        'Naše osebje je preverjeno, temeljito strokovno usposobljeno in opremljeno z vodilnimi tehnikami v panogi, kar zagotavlja zanesljive in dosledne rezultate.',
+      bullets: [
+        'Preverjeni kadri z ustreznimi kompetencami in izkušnjami',
+        'Strokovna usposobljenost po vodilnih standardih v panogi',
+        'Zanesljivost, diskretnost in dosledna kakovost izvedbe'
+      ]
     },
     {
       icon: ShieldCheck,
-      title: 'Popolna skladnost s standardi',
-      description: 'Dosledno upoštevanje vseh zakonskih in evropskih higienskih smernic.'
-    },
-    {
-      icon: Award,
-      title: 'Neprekinjen nadzor kakovosti',
-      description: 'Redni pregledi nadzornikov na terenu in stalna optimizacija delovnih procesov.'
+      title: 'Sodobna oprema in varni izdelki',
+      description:
+        'Uporabljamo napredno opremo za čiščenje ter okolju prijazna in varna čistilna sredstva, ki zagotavljajo visok higienski standard brez škodovanja okolju.',
+      bullets: [
+        'Napredna profesionalna oprema in pripomočki',
+        'Ekološka, varna in zdravju prijazna čistilna sredstva',
+        'Visoka raven higiene z odgovornim ravnanjem do okolja'
+      ]
     },
     {
       icon: Clock,
-      title: 'Zanesljivost in prilagodljivost',
-      description: 'Hitra prilagoditev dinamiki in sezonski zasedenosti vašega objekta.'
+      title: 'Prilagojeni načrti storitev',
+      description:
+        'Zavedamo se, da je vsak prostor drugačen. Ponujamo prilagodljive urnike (dnevno, tedensko, mesečno ali enkratno globinsko čiščenje), ki se nemoteno ujemajo z vašim proračunom in operativnimi potrebami.',
+      bullets: [
+        'Prilagodljivi urniki: dnevno, tedensko ali mesečno čiščenje',
+        'Enkratna specializirana in globinska čiščenja',
+        'Popolna prilagoditev vašim operativnim potrebam in proračunu'
+      ]
     }
   ];
 
@@ -49,32 +71,25 @@ export default function About() {
       {/* 1. Page Banner */}
       <PageBanner
         title="O nas"
-        subtitle="Spoznajte našo filozofijo, vrednote in predanost vrhunskim storitvam v hotelirstvu."
+        subtitle="Dobrodošli pri Williams Housekeeping — vašem zanesljivem partnerju za brezhibno čiste in zdrave prostore."
         breadcrumbs={[{ name: 'Domov', path: '/' }]}
       />
 
-      {/* 2. Company Introduction (recreating screenshot 2) */}
+      {/* 2. Company Introduction */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Image with secondary overlapping placeholder */}
+            {/* Left Column: Image */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 <ImagePlaceholder
+                  src="/images/about_image.jpeg"
+                  alt="Predstavitev ekipe Williams Housekeeping"
                   aspectRatio="aspect-[4/5]"
                   rounded="rounded-2xl"
                   label="Predstavitev ekipe Williams"
                   className="shadow-xl border-2 border-gray-100"
                 />
-
-                <div className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-6 w-1/2 sm:w-56 shadow-2xl rounded-2xl bg-white p-2">
-                  <ImagePlaceholder
-                    aspectRatio="aspect-square"
-                    rounded="rounded-xl"
-                    label="Naša zaveza kakovosti"
-                    className="border border-[#0B70A6]/30 bg-blue-50/50"
-                  />
-                </div>
               </div>
             </div>
 
@@ -82,37 +97,37 @@ export default function About() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 mb-3">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                <span>O podjetju</span>
+                <span>O nas &bull; Williams Housekeeping</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-green leading-tight mb-4">
-                Vrhunske ekipe za hotelsko gospodinjstvo in poslovne prostore
+                Dobrodošli pri Williams Housekeeping — Vaš zanesljiv partner za brezhibne in zdrave prostore
               </h2>
 
               <p className="text-gray-700 text-base leading-relaxed mb-4">
-                Zavezani smo k zagotavljanju brezhibne čistoče, urejenosti in visoke ravni higiene za hotele, letovišča ter poslovne objekte po vsej Sloveniji. Naš cilj je ustvariti prijetno in varno bivalno okolje za vaše goste.
+                Pri Williams Housekeeping verjamemo, da je čisto okolje temelj zdravja, produktivnosti in miru. Smo ponudnik profesionalnih rešitev za čiščenje, predan zagotavljanju vrhunskih storitev, prilagojenih edinstvenim potrebam stanovanjskih, poslovnih in komercialnih naročnikov.
               </p>
 
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                Zanesljivost, diskretnost in profesionalni odnos so temelj vsakega našega sodelovanja. Z usposobljenimi ekipami in stalnim nadzorom kakovosti prevzemamo celotno skrb za urejenost vaših prostorov.
+                Ne glede na to, ali gre za osvežitev vašega doma, vzdrževanje higienskega in navdihujočega pisarniškega delovnega prostora, vrhunsko oskrbo vrtov in urejanje okolice ali ponudbo globinskega čiščenja in vzdrževanja za hotele ter nastanitvene obrate — poskrbimo za vse. Naše strokovno znanje zajema vse vrste specializiranih storitev čiščenja, s čimer zagotavljamo, da vsak kotiček prejme skrb in pozornost, ki si jo zasluži.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-gray-800">
                   <CheckCircle2 className="w-5 h-5 text-brand-blue shrink-0" />
-                  <span>Stalna razpoložljivost osebja</span>
+                  <span>Osvežitev domov in stanovanj</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-gray-800">
                   <CheckCircle2 className="w-5 h-5 text-brand-blue shrink-0" />
-                  <span>Nadzor kakovosti na terenu</span>
+                  <span>Higienski pisarniški in poslovni prostori</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-gray-800">
                   <CheckCircle2 className="w-5 h-5 text-brand-blue shrink-0" />
-                  <span>Preverjeni in usposobljeni kadri</span>
+                  <span>Vrhunska oskrba vrtov in urejanje okolice</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-gray-800">
                   <CheckCircle2 className="w-5 h-5 text-brand-blue shrink-0" />
-                  <span>Brezplačna in hitra menjava</span>
+                  <span>Globinsko čiščenje hotelov in nastanitev</span>
                 </div>
               </div>
 
@@ -126,20 +141,20 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. Poslanstvo & Delajte z nami (Two cards matching screenshot 2) */}
+      {/* 3. Preobrazba prostorov in brezskrbnost naročnikov */}
       <section className="py-16 bg-gray-50/70 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="p-8 sm:p-10 rounded-2xl border border-gray-200 bg-white shadow-sm flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center mb-6">
-                  <Target className="w-6 h-6" />
+                  <Sparkles className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold text-brand-green mb-3">
-                  Naše poslanstvo
+                  Preoblikujemo vaše prostore
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Zagotavljati brezhibno čistočo in celovito podporo, ki hotelirjem ter upraviteljem objektov omogoča popolno osredotočenost na zadovoljstvo njihovih gostov.
+                  Pri Williams Housekeeping ne le čistimo prostorov — preoblikujemo jih v bolj zdrava, svetlejša in prijetnejša okolja za bivanje ter delo.
                 </p>
               </div>
               <div className="pt-4 border-t border-gray-100">
@@ -152,13 +167,13 @@ export default function About() {
             <div className="p-8 sm:p-10 rounded-2xl border border-gray-200 bg-white shadow-sm flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-amber-50 text-[#F3B209] flex items-center justify-center mb-6">
-                  <Handshake className="w-6 h-6" />
+                  <HeartHandshake className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold text-brand-green mb-3">
-                  Delajte z nami
+                  Osredotočite se na pomembno
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Pridružite se naši rastoči ekipi ali postanite naš zaupanja vreden partner pri zagotavljanju vrhunskih nastanitvenih storitev po vsej Sloveniji.
+                  Prepustite nam skrb za čistočo in nered, da se vi lahko brezskrbno posvetite tistemu, kar je za vas najpomembnejše.
                 </p>
               </div>
               <div className="pt-4 border-t border-gray-100">
@@ -170,51 +185,57 @@ export default function About() {
           </div>
 
           <div className="mt-8 py-3.5 px-6 rounded-xl bg-white border border-gray-200 text-center text-xs sm:text-sm text-gray-600 font-medium">
-            Williams Housekeeping &bull; Zanesljive ekipe za hotelsko gospodinjstvo &bull; Evropski standardi kakovosti
+            Williams Housekeeping &bull; Zaupanja vreden partner za brezhibne prostore &bull; Vrhunska kakovost in zanesljivost
           </div>
         </div>
       </section>
 
-      {/* 4. 5-Step Hiring & Training System (matching screenshot 2) */}
+      {/* 4. Why Choose Williams Housekeeping Section */}
       <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            badge="Izbirni postopek"
-            title="Celovit 5-stopenjski sistem izbire in usposabljanja"
-            subtitle="Naš strukturiran pristop zagotavlja preverjene kadre in najvišjo stopnjo zanesljivosti."
+            badge="Zakaj izbrati nas"
+            title="Zakaj izbrati Williams Housekeeping?"
+            subtitle="Zanesljivost, strokovnost in celovita podpora za brezhibno urejene prostore."
             centered={true}
           />
 
-          <div className="relative pl-6 sm:pl-10 space-y-8 before:content-[''] before:absolute before:left-5 sm:before:left-7 before:top-4 before:bottom-4 before:w-0.5 before:bg-blue-200">
-            {processStepsData.map((stepItem) => (
-              <div key={stepItem.step} className="relative group">
-                <div className="absolute -left-6 sm:-left-10 top-1 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white border-2 border-brand-blue flex items-center justify-center text-brand-blue font-black text-sm sm:text-base shadow-sm group-hover:bg-brand-blue group-hover:text-white transition-all">
-                  {stepItem.step}
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {whyChooseFeatures.map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white p-7 sm:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center mb-5">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-bold text-brand-green mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-5">
+                      {feature.description}
+                    </p>
+                  </div>
 
-                <div className="ml-5 sm:ml-6 bg-white p-6 sm:p-7 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                  <h3 className="text-lg sm:text-xl font-bold text-brand-green mb-2">
-                    {stepItem.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-500 mb-4">
-                    {stepItem.description}
-                  </p>
-                  <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
-                    {stepItem.items.map((bullet, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <ul className="space-y-2.5 text-xs sm:text-sm text-gray-700 pt-4 border-t border-gray-100">
+                    {feature.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* 5. Testimonials Section (matching screenshot 2) */}
+      {/* 5. Testimonials Section */}
       <section className="py-16 sm:py-24 bg-gray-50/70 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -241,9 +262,9 @@ export default function About() {
 
       {/* 6. CTA Section */}
       <CTASection
-        title="Želite izvedeti več o naših rešitvah?"
-        subtitle="Z veseljem odgovorimo na vsa vaša vprašanja in pripravimo prilagojeno ponudbo za vaše objekte."
-        primaryBtnText="Stopite v stik z nami"
+        title="Prepustite nam skrb za čistočo"
+        subtitle="Pri Williams Housekeeping ne le čistimo prostorov — preoblikujemo jih v bolj zdrava, svetlejša in prijetnejša okolja. Stopite v stik z nami!"
+        primaryBtnText="Pošljite povpraševanje"
         primaryBtnTo="/kontakt"
       />
     </div>
