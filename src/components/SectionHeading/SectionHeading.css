@@ -36,6 +36,14 @@
   width: fit-content;
 }
 
+.section-heading-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .section-heading-badge.light {
   background-color: #ecfdf5;
   color: #047857;

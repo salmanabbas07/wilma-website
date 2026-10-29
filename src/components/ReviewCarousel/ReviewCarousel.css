@@ -1,4 +1,4 @@
-/* Review / Testimonials Carousel Styles */
+/* Review / Testimonials Continuous Carousel Styles */
 .review-carousel-section {
   padding-top: 4rem;
   padding-bottom: 5rem;
@@ -35,36 +35,60 @@
   }
 }
 
-/* Carousel Track Wrapper */
-.review-carousel-wrapper {
+/* Continuous Marquee Carousel Viewport */
+.review-carousel-viewport {
   position: relative;
   overflow: hidden;
-  margin-bottom: 2rem;
-  border-radius: 1rem;
+  width: 100%;
+  padding: 0.75rem 0 1.5rem 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
 }
 
-.review-carousel-track {
+.review-carousel-marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: continuousMarqueeScroll 36s linear infinite;
+}
+
+.review-carousel-viewport:hover .review-carousel-marquee {
+  animation-play-state: paused;
+}
+
+.review-marquee-set {
   display: flex;
   gap: 1.5rem;
-  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
+  padding-right: 1.5rem; /* Matches gap to ensure seamless loop */
+  flex-shrink: 0;
 }
 
-/* Review Card in Carousel */
-.review-slide-item {
-  flex: 0 0 100%;
-  min-width: 0;
-  box-sizing: border-box;
+/* Slide Card Wrapper */
+.review-slide-card {
+  width: 380px;
+  flex: 0 0 380px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
-  .review-slide-item {
-    flex: 0 0 calc(50% - 0.75rem);
+@media (max-width: 640px) {
+  .review-slide-card {
+    width: 310px;
+    flex: 0 0 310px;
+  }
+
+  .review-marquee-set {
+    gap: 1rem;
+    padding-right: 1rem;
+  }
+
+  .review-carousel-marquee {
+    animation-duration: 28s;
   }
 }
 
+/* Individual Review Card */
 .review-card {
   background-color: #ffffff;
   border: 1px solid #f1f5f9;
@@ -97,7 +121,7 @@
 .review-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
-  border-color: rgba(11, 112, 166, 0.2);
+  border-color: rgba(11, 77, 38, 0.25);
 }
 
 .review-card-top {
@@ -116,16 +140,16 @@
 .review-star-icon {
   width: 1.125rem;
   height: 1.125rem;
-  color: #F3B209;
-  fill: #F3B209;
+  color: #EEA800;
+  fill: #EEA800;
 }
 
 .review-quote-badge {
   width: 2rem;
   height: 2rem;
   border-radius: 0.5rem;
-  background-color: rgba(11, 112, 166, 0.08);
-  color: #0B70A6;
+  background-color: rgba(11, 77, 38, 0.08);
+  color: #0B4D26;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,7 +186,7 @@
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #0B70A6 0%, #081738 100%);
+  background: linear-gradient(135deg, #0B4D26 0%, #062b15 100%);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -189,7 +213,7 @@
 
 .review-author-role {
   font-size: 0.8125rem;
-  color: #0B70A6;
+  color: #0B4D26;
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
@@ -204,71 +228,12 @@
   text-overflow: ellipsis;
 }
 
-/* Controls: Arrows and Dots */
-.review-controls-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  margin-top: 1rem;
-}
-
-.review-arrow-btn {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 9999px;
-  background-color: #081738;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px -1px rgba(8, 23, 56, 0.2);
-}
-
-.review-arrow-btn:hover:not(:disabled) {
-  background-color: #EEA800;
-  color: #0B4D26;
-  transform: scale(1.06);
-  box-shadow: 0 6px 12px -2px rgba(238, 168, 0, 0.4);
-}
-
-.review-arrow-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.review-arrow-btn:focus-visible {
-  outline: 2px solid #EEA800;
-  outline-offset: 2px;
-}
-
-/* Indicators */
-.review-dots-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.review-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 9999px;
-  background-color: #cbd5e1;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.review-dot:hover {
-  background-color: #94a3b8;
-}
-
-.review-dot.active {
-  width: 1.5rem;
-  background-color: #0B70A6;
+/* Seamless Continuous Marquee Animation */
+@keyframes continuousMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

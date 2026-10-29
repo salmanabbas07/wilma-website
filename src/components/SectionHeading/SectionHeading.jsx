@@ -13,7 +13,8 @@ export default function SectionHeading({
   centered = true,
   onDark = false,
   className = '',
-  titleTag = 'h2'
+  titleTag = 'h2',
+  iconSrc
 }) {
   const HeadingTag = titleTag;
   const theme = onDark ? 'dark' : 'light';
@@ -26,7 +27,16 @@ export default function SectionHeading({
     >
       {badge && (
         <div className={`section-heading-badge ${theme}`}>
-          <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+          {iconSrc ? (
+            <img
+              src={iconSrc}
+              alt=""
+              className="section-heading-icon"
+              aria-hidden="true"
+            />
+          ) : (
+            <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+          )}
           <span>{badge}</span>
         </div>
       )}

@@ -2,25 +2,41 @@ export const testimonialsData = [
   {
     id: 1,
     rating: 5,
-    quote: 'Williams Housekeeping nam zagotavlja izjemno zanesljivo in profesionalno ekipo. V času visoke turistične sezone so ključni partner pri ohranjanju najvišjih standardov čistoče v naših sobah.',
-    author: 'Marko Kovač',
-    position: 'Direktor hotela',
-    company: 'Grand Hotel Portorož'
+    quote: 'Williams Housekeeping nam zagotavlja izjemno zanesljivo in strokovno ekipo. V času visoke turistične sezone so ključni partner pri ohranjanju najvišjih standardov čistoče v hotelskih sobah.',
+    author: 'Marko K.',
+    position: 'Vodja hotela',
+    company: 'Vzorec ocene partnerja · Ljubljana'
   },
   {
     id: 2,
     rating: 5,
-    quote: 'Njihova prilagodljivost in hitra odzivnost sta neprecenljivi. Osebje je temeljito, vljudno in dosledno upošteva vsa naša navodila glede higiene in priprave sob.',
-    author: 'Ana Novak',
-    position: 'Vodja operacij',
-    company: 'Boutique Hotel Ljubljana'
+    quote: 'Njihova prilagodljivost in hitra odzivnost sta vrhunski. Osebje je temeljito usposobljeno, profesionalno in dosledno spoštuje vse hotelske standarde higiene.',
+    author: 'Ana N.',
+    position: 'Vodja hotelskega gospodinjstva',
+    company: 'Vzorec ocene partnerja · Bled'
   },
   {
     id: 3,
     rating: 5,
-    quote: 'Odlična izkušnja s podizvajanjem čiščenja. Z njihovo pomočjo smo bistveno zmanjšali operativne skrbi in dosegli še boljše ocene gostov za čistočo.',
-    author: 'Matej Zupan',
-    position: 'Upravnik nastanitev',
-    company: 'Alpski Resort Bled'
+    quote: 'Sodelovanje z ekipo Williams nam je znatno olajšalo organizacijo v času polne zasedenosti. Sobe so vedno pravočasno in brezhibno pripravljene za nove goste.',
+    author: 'Matej Z.',
+    position: 'Direktor boutique hotela',
+    company: 'Vzorec ocene partnerja · Portorož'
+  },
+  {
+    id: 4,
+    rating: 5,
+    quote: 'Izjemno cenimo njihovo natančnost, diskretnost in spoštovanje zasebnosti gostov. Visok nivo čistoče ter stalen nadzor kakovosti so razlog, da jim popolnoma zaupamo.',
+    author: 'Elena S.',
+    position: 'Vodja nastanitvenih enot',
+    company: 'Vzorec ocene partnerja · Kranjska Gora'
+  },
+  {
+    id: 5,
+    rating: 5,
+    quote: 'Zanesljiv partner za celostno skrb za hotelske prostore in perilo. Odlična komunikacija z vodstvom ter visoka raven profesionalnosti na vsakem koraku.',
+    author: 'Robert B.',
+    position: 'Operativni vodja nastanitev',
+    company: 'Vzorec ocene partnerja · Maribor'
   }
 ];
