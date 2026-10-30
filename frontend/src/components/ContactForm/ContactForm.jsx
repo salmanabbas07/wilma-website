@@ -21,6 +21,7 @@ export default function ContactForm({ className = '' }) {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverError, setServerError] = useState(null);
 
   const validate = () => {
     const errs = {};
@@ -49,10 +50,17 @@ export default function ContactForm({ className = '' }) {
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: null }));
     }
+    if (serverError) {
+      setServerError(null);
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Prevent duplicate accidental clicks while submitting
+    if (isSubmitting) return;
+
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -60,8 +68,29 @@ export default function ContactForm({ className = '' }) {
     }
 
     setIsSubmitting(true);
-    // Simulate brief client-side processing
-    setTimeout(() => {
+    setServerError(null);
+
+    try {
+      // Connect to the backend API endpoint
+      const apiUrl = import.meta.env.VITE_BACKEND_URL 
+        ? `${import.meta.env.VITE_BACKEND_URL}/api/inquiry/send`
+        : 'http://localhost:5000/api/inquiry/send';
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Napaka pri pošiljanju povpraševanja. Prosimo, poskusite znova.');
+      }
+
+      // Success: show confirmation and reset form
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({
@@ -72,7 +101,13 @@ export default function ContactForm({ className = '' }) {
         message: ''
       });
       setErrors({});
-    }, 400);
+      setServerError(null);
+    } catch (err) {
+      setIsSubmitting(false);
+      setServerError(
+        err.message || 'Prišlo je do napake pri povezavi s strežnikom. Prosimo, preverite internetno povezavo ali poskusite znova.'
+      );
+    }
   };
 
   return (
@@ -83,13 +118,16 @@ export default function ContactForm({ className = '' }) {
             <CheckCircle2 className="w-9 h-9" />
           </div>
           <h3 className="text-2xl font-bold text-brand-green mb-3">
-            Sporočilo je bilo uspešno prejeto (Predogled)
+            Sporočilo je bilo uspešno poslano!
           </h3>
           <p className="text-gray-600 text-sm max-w-md mx-auto mb-6 leading-relaxed">
-            Hvala za vaše povpraševanje! To je demonstracijski prikaz spletne strani; podatki so bili uspešno validirani na ravni odjemalca.
+            Hvala za vaše povpraševanje! Vaše sporočilo smo uspešno prejeli. Naša strokovna ekipa vam bo odgovorila v najkrajšem možnem času.
           </p>
           <Button
-            onClick={() => setSubmitted(false)}
+            onClick={() => {
+              setSubmitted(false);
+              setServerError(null);
+            }}
             variant="primary"
             size="md"
           >
@@ -235,6 +273,14 @@ export default function ContactForm({ className = '' }) {
               </p>
             )}
           </div>
+
+          {/* Server Error Message */}
+          {serverError && (
+            <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-xs sm:text-sm text-red-700 flex items-start gap-2.5">
+              <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+              <span>{serverError}</span>
+            </div>
+          )}
 
           {/* Submit Button */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
