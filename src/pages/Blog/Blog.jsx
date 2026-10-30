@@ -21,6 +21,7 @@ export default function Blog() {
         title="Blog in novice"
         subtitle="Strokovni vpogledi, nasveti za vodenje gospodinjstva in najnovejši trendi v hotelirstvu."
         breadcrumbs={[{ name: 'Domov', path: '/' }]}
+        image="/images/blog_lp.png"
       />
 
       <section className="py-16 sm:py-24 bg-white">

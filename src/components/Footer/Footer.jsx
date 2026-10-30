@@ -188,6 +188,13 @@ export default function Footer() {
                   >
                     +386 69 803 622
                   </a>
+                  <a
+                    href="tel:040791618"
+                    className="footer-contact-val"
+                    style={{ color: '#ffffff', fontWeight: 700 }}
+                  >
+                    040 791 618
+                  </a>
                 </div>
               </div>
 

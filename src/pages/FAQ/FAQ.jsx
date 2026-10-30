@@ -53,6 +53,7 @@ export default function FAQ() {
         title="Pogosta vprašanja"
         subtitle="Odgovori na najpogostejša vprašanja o naših storitvah, organizaciji dela in sodelovanju."
         breadcrumbs={[{ name: 'Domov', path: '/' }]}
+        image="/images/FAQ_lp.png"
       />
 
       <section className="py-16 sm:py-24 bg-white">

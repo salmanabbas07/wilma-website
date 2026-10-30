@@ -108,5 +108,6 @@
 @media (min-width: 640px) {
   .cta-buttons-row {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }

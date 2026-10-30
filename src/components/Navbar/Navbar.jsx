@@ -50,6 +50,15 @@ export default function Navbar() {
             </a>
             <span className="top-bar-divider">|</span>
             <a
+              href="tel:040791618"
+              className="top-bar-link"
+              aria-label="Pokličite nas na 040 791 618"
+            >
+              <Phone className="top-bar-icon" />
+              <span>Telefon: <strong>040 791 618</strong></span>
+            </a>
+            <span className="top-bar-divider">|</span>
+            <a
               href="mailto:info@wservicess.com"
               className="top-bar-link"
               aria-label="Pošljite nam e-pošto na info@wservicess.com"
@@ -220,6 +229,13 @@ export default function Navbar() {
               >
                 <Phone className="w-4 h-4 text-[#EEA800]" />
                 <span>+386 69 803 622</span>
+              </a>
+              <a
+                href="tel:040791618"
+                className="mobile-drawer-contact-item highlight"
+              >
+                <Phone className="w-4 h-4 text-[#EEA800]" />
+                <span>040 791 618</span>
               </a>
               <a
                 href="https://wa.me/38669803622"

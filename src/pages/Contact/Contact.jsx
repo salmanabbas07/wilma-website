@@ -19,9 +19,11 @@ export default function Contact() {
     {
       icon: Phone,
       title: 'Telefonski kontakt',
-      content: '+386 69 803 622',
-      note: 'Pon - Pet: 08:00 - 18:00',
-      link: 'tel:+38669803622'
+      phones: [
+        { text: '+386 69 803 622', link: 'tel:+38669803622' },
+        { text: '040 791 618', link: 'tel:040791618' }
+      ],
+      note: 'Pon - Pet: 08:00 - 18:00'
     },
     {
       icon: Mail,
@@ -46,6 +48,7 @@ export default function Contact() {
         title="Kontakt"
         subtitle="Stopite v stik z našo strokovno ekipo za brezplačno svetovanje in neobvezujočo ponudbo."
         breadcrumbs={[{ name: 'Domov', path: '/' }]}
+        image="/images/contact_lp.png"
       />
 
       {/* 2. Contact Info Cards */}
@@ -66,7 +69,19 @@ export default function Contact() {
                     <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
                       {item.title}
                     </h3>
-                    {item.link ? (
+                    {item.phones ? (
+                      <div className="space-y-1">
+                        {item.phones.map((phone, pIdx) => (
+                          <a
+                            key={pIdx}
+                            href={phone.link}
+                            className="text-base font-bold text-[#0B4D26] hover:text-[#EEA800] transition-colors block break-words"
+                          >
+                            {phone.text}
+                          </a>
+                        ))}
+                      </div>
+                    ) : item.link ? (
                       <a
                         href={item.link}
                         target={item.link.startsWith('http') ? '_blank' : undefined}
@@ -127,6 +142,13 @@ export default function Contact() {
                     className="text-2xl font-black text-[#0B4D26] hover:underline block tracking-tight leading-tight"
                   >
                     + 386 69 803 622
+                  </a>
+
+                  <a
+                    href="tel:040791618"
+                    className="text-2xl font-black text-[#0B4D26] hover:underline block tracking-tight leading-tight"
+                  >
+                    040 791 618
                   </a>
 
                   <a

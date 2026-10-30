@@ -52,6 +52,7 @@ export default function Services() {
         title="Storitve"
         subtitle="Celovite storitve čiščenja, gospodinjstva in kadrovske podpore za hotele ter poslovne objekte."
         breadcrumbs={[{ name: 'Domov', path: '/' }]}
+        image="/images/service_lp.png"
       />
 
       <div className="bg-white py-12 sm:py-16">

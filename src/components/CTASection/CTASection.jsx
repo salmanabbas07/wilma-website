@@ -15,6 +15,8 @@ export default function CTASection({
   primaryBtnTo = '/kontakt',
   secondaryBtnText = 'Pokličite nas: +386 69 803 622',
   secondaryBtnHref = 'tel:+38669803622',
+  secondaryBtn2Text = 'Pokličite nas: 040 791 618',
+  secondaryBtn2Href = 'tel:040791618',
   className = ''
 }) {
   return (
@@ -59,6 +61,18 @@ export default function CTASection({
               className="w-full sm:w-auto"
             >
               {secondaryBtnText}
+            </Button>
+          )}
+
+          {secondaryBtn2Href && (
+            <Button
+              href={secondaryBtn2Href}
+              variant="outlineWhite"
+              size="lg"
+              icon={PhoneCall}
+              className="w-full sm:w-auto"
+            >
+              {secondaryBtn2Text}
             </Button>
           )}
         </div>

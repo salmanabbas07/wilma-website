@@ -73,6 +73,7 @@ export default function About() {
         title="O nas"
         subtitle="Dobrodošli pri Williams Housekeeping — vašem zanesljivem partnerju za brezhibno čiste in zdrave prostore."
         breadcrumbs={[{ name: 'Domov', path: '/' }]}
+        image="/images/about_lp.png"
       />
 
       {/* 2. Company Introduction */}

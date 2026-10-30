@@ -348,6 +348,7 @@ export default function Home() {
         primaryBtnText="Pošljite povpraševanje"
         primaryBtnTo="/kontakt"
         secondaryBtnText="Pokličite nas: +386 69 803 622"
+        secondaryBtn2Text="Pokličite nas: 040 791 618"
       />
     </div>
   );
